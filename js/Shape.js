@@ -110,7 +110,16 @@ function collisionFloor(moveRow, collidingArray) {
 
   if ( totalHeight >= TILE_ROWS ){
     return(true);
+  }
 
+  return(false);
+}
+
+function collideWithWall(moveCol, collidingArray){
+  var totalWidth= moveRow + collidingArray[0].length;
+
+  if (totalWidth > TITLE_COLS){
+    return(true);
   }
 
   return(false);
