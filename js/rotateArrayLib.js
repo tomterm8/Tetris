@@ -1,3 +1,4 @@
+// much of this code actually comes from the interweb - just rotates a matrix
 
    var rotateMatrix = function (matrix, direction) {
 

@@ -152,38 +152,8 @@ function addRowToTopOfGrid(){
 // TO DO: could probably improve score method, but not essential.
 // this is proof of concept.
 
-// really need to refacor these classes.
 
-function calculateScore(row) {
-  var arrayIndex = rowColToArrayIndex(0, row);
-  var scoreArray = tetrisGrid.slice( arrayIndex, arrayIndex + TILE_COLS);
-  var calculatedScore = 0;
-  // calculate the score for every colour
-  for(var i =0; i <= scoreArray.length; i++){
 
-    // the scoreArray contains a square with a colour in it, we add the
-    // value of that colour to the score.
-    switch (scoreArray[i]){
-      case 'red':
-        calculatedScore += SCORE_RED;
-        break;
-      case 'blue':
-        calculatedScore += SCORE_BLUE;
-        break;
-      case 'brown':
-          calculatedScore += SCORE_BROWN;
-        break;
-      case 'yellow':
-        calculatedScore += SCORE_YELLOW;
-        break;
-      case 'purple':
-          calculatedScore += SCORE_PURPLE
-        break;
-      };
-  }
-
-  score += calculatedScore;
-}
 
 //  function to remove a given row from the grid
 function removeRow(row){
@@ -236,8 +206,6 @@ function checkGrid(){
         actionDelete(eachRow);
         delRow = false;
     }
-
-
 
   }
 
