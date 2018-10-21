@@ -125,14 +125,14 @@ const TILE_NORECURSION = 2;
 
 
 
-      // to do : make more even space between moveShape
 
+      // this function draws the header above the tetris grid
       function drawHeader(){
         colorText('Score: ' + score, 20,20, 'white');
         var currentPos = 60;
 
         for (var i=0; i < spriteList.length; i++){
-          drawSprite( spriteList[i].slice(), 30, currentPos);
+          drawSprite( spriteList[i].slice(), 40, currentPos);
           // spriteWidth(spiteList[i])*TILE_W is the actual width of the sprite
           // in pixels.
           currentPos += spriteWidth(spriteList[i])*TILE_W + TILE_W;
@@ -158,8 +158,11 @@ function calculateScore(row) {
   var arrayIndex = rowColToArrayIndex(0, row);
   var scoreArray = tetrisGrid.slice( arrayIndex, arrayIndex + TILE_COLS);
   var calculatedScore = 0;
+  // calculate the score for every colour
+  for(var i =0; i <= scoreArray.length; i++){#
 
-  for(var i =0; i <= scoreArray.length; i++){
+    // the scoreArray contains a square with a colour in it, we add the
+    // value of that colour to the score.
     switch (scoreArray[i]){
       case 'red':
         calculatedScore += SCORE_RED;
@@ -201,6 +204,7 @@ function removeRow(row){
 // ToDo: could be made more efficient by checking only rows withihin shapeHeight
 function checkGrid(){
   var delRow;
+  
   for(var eachRow=0;eachRow<TILE_ROWS;eachRow++) {
     delRow = true;
 

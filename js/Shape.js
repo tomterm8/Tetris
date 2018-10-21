@@ -287,7 +287,6 @@ function moveShapeDown(moveCol,moveRow){
      };
 
 
-    // TODO check collision here
     if (keyHeld_Switch >= MOVEMENT_DELAY){
           rotateShape(moveCol,moveRow);
           keyHeld_Switch = 0;
