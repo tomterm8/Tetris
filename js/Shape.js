@@ -116,9 +116,11 @@ function collisionFloor(moveRow, collidingArray) {
 }
 
 function collideWithWall(moveCol, collidingArray){
-  var totalWidth= moveRow + collidingArray[0].length;
 
-  if (totalWidth > TITLE_COLS){
+  // TO DO: This could break if array has rows with different widths.
+  var totalWidth= moveCol + collidingArray[0].length;
+
+  if (totalWidth > TILE_COLS){
     return(true);
   }
 
@@ -197,13 +199,9 @@ function rotateShape(moveCol,moveRow)
   waitForMovement = true;
 
 
-  // toDo: what about collide with the wall on either side.
-  // left side is always OK, but right side we can go off the grid...
-
-
-
   // if we don't collide with floor, or with a background object
-  if ( !(collisionDetection(moveCol, moveRow, rotatedShapeArray))
+  if ( !(collideWithWall(moveCol, rotatedShapeArray)) &&
+      !(collisionDetection(moveCol, moveRow, rotatedShapeArray))
       && !(collisionFloor(moveRow, rotatedShapeArray))
        ) {
 
