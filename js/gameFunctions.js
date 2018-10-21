@@ -5,7 +5,8 @@
 
 
   var framesPerSecond = 30;
-
+  var score = 0;
+	
 function loadGame(){
 
   		// this section grabs the canvas

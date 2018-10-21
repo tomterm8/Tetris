@@ -128,7 +128,7 @@ const TILE_NORECURSION = 2;
       // to do : make more even space between moveShape
 
       function drawHeader(){
-        colorText('Next Shape:', 20,20, 'white');
+        colorText('Score: ' + score, 20,20, 'white');
         var currentPos = 60;
 
         for (var i=0; i < spriteList.length; i++){
@@ -138,7 +138,7 @@ const TILE_NORECURSION = 2;
           currentPos += spriteWidth(spriteList[i])*TILE_W + TILE_W;
 
         }
-    
+
       }
 
 // adds a empty row to the too of the grid.
@@ -149,10 +149,42 @@ function addRowToTopOfGrid(){
 
 }
 
-//
+// TO DO: could probably improve score method, but not essential.
+// this is proof of concept.
+
+function calculateScore(row) {
+  var arrayIndex = rowColToArrayIndex(0, row);
+  var scoreArray = tetrisGrid.slice( arrayIndex, arrayIndex + TILE_COLS);
+  var calculatedScore = 0;
+
+  for(var i =0; i <= scoreArray.length; i++){
+    switch (scoreArray[i]){
+      case 'red':
+        calculatedScore += SCORE_RED;
+        break;
+      case 'blue':
+        calculatedScore += SCORE_BLUE;
+        break;
+      case 'brown':
+          calculatedScore += SCORE_BROWN;
+        break;
+      case 'yellow':
+        calculatedScore += SCORE_YELLOW;
+        break;
+      case 'purple':
+          calculatedScore += SCORE_PURPLE
+        break;
+      };
+  }
+
+  score += calculatedScore;
+}
+
 //  function to remove a given row from the grid
 function removeRow(row){
      var arrayIndex = rowColToArrayIndex(0, row);
+     calculateScore(row);
+
 
      // get the grid in front of the row we want to delete
      var  tetrisGridFront = tetrisGrid.slice(0, arrayIndex);

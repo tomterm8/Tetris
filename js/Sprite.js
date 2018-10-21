@@ -33,14 +33,25 @@ var spriteList = new Array();
 const NUMBER_IN_SPRITE_LIST = 3;
 
 
+// these are colour constants
+const SELECTED_RED = 0;
+const SELECTED_BLUE = 1;
+const SELECTED_YELLOW = 2;
+const SELECTED_BROWN = 3;
+const SELECTED_PURPLE = 4;
+
+const SCORE_RED = 5;
+const SCORE_BLUE= 10;
+const SCORE_BROWN= 15;
+const  SCORE_YELLOW= 10;
+const SCORE_PURPLE= 30;
+
+
 
 
   function selectColour(){
-    const SELECTED_RED = 0;
-    const SELECTED_BLUE = 1;
-    const SELECTED_YELLOW = 2;
-    const SELECTED_BROWN = 3;
-    const SELECTED_PURPLE = 4;
+
+
     var diceRole = Math.floor(Math.random(5)*5);
     switch (diceRole){
       case SELECTED_RED:
