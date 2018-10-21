@@ -125,13 +125,20 @@ const TILE_NORECURSION = 2;
 
 
 
+      // to do : make more even space between moveShape
 
       function drawHeader(){
         colorText('Next Shape:', 20,20, 'white');
+        var currentPos = 60;
 
-        drawSprite( spriteList[0].slice(), 30, 60);
-        drawSprite( spriteList[1].slice(), 30, 160);
-        drawSprite( spriteList[2].slice(), 30, 320);
+        for (var i=0; i < spriteList.length; i++){
+          drawSprite( spriteList[i].slice(), 30, currentPos);
+          // spriteWidth(spiteList[i])*TILE_W is the actual width of the sprite
+          // in pixels.
+          currentPos += spriteWidth(spriteList[i])*TILE_W + TILE_W;
+
+        }
+    
       }
 
 // adds a empty row to the too of the grid.
