@@ -118,6 +118,8 @@ function collisionFloor(moveRow, collidingArray) {
 function collideWithWall(moveCol, collidingArray){
 
   // TO DO: This could break if array has rows with different widths.
+  // a nice to have since we are predefining shapes at moment which all have
+  // same width.
   var totalWidth= moveCol + collidingArray[0].length;
 
   if (totalWidth > TILE_COLS){
