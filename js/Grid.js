@@ -152,6 +152,8 @@ function addRowToTopOfGrid(){
 // TO DO: could probably improve score method, but not essential.
 // this is proof of concept.
 
+// really need to refacor these classes.
+
 function calculateScore(row) {
   var arrayIndex = rowColToArrayIndex(0, row);
   var scoreArray = tetrisGrid.slice( arrayIndex, arrayIndex + TILE_COLS);
