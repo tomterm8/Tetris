@@ -20,10 +20,10 @@ function setupInput() {
 
 
 function keySet(keyEvent, setTo) {
+  //used for debug
+	//console.log('Key pressed ' + keyEvent.keyCode)
 
-	console.log('Key pressed ' + keyEvent.keyCode)
 
- 
 	if(keyEvent.keyCode == KEY_LEFT_ARROW) {
 		keyHeld_Left += setTo;
 
@@ -46,6 +46,7 @@ function keySet(keyEvent, setTo) {
 //  console.log(keyHeld_Left, keyHeld_Right, keyHeld_Switch, keyHeld_drop)
 }
 
+// these handle the keypress events
 function keyPressed(evt) {
 	// console.log("Key pressed: "+evt.keyCode);
 	keySet(evt, 1);

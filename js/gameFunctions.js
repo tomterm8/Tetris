@@ -6,23 +6,29 @@
 
   var framesPerSecond = 30;
   var score = 0;
-	
+
+/* called to load all the game into memory and
+   initialize all resources */
+
 function loadGame(){
 
   		// this section grabs the canvas
   		canvas = document.getElementById('gameCanvas');
   		canvasContext = canvas.getContext('2d');
 
+			// this generates the sprie list of future sprites.
 			generateSpriteList();
 
-  		// stops context menu on right click
-  		//document.oncontextmenu = document.body.oncontextmenu = function() {return false;}
-
+  		// actually used to initialize the grid in this case
 			gridReset();
 
+			// game has been loaded
 			loaded = true;
+
+			// start the game
   	  startGame();
-			console.log('Debug game loaded');
+
+			//console.log('Debug game loaded');
 }
 
 
@@ -31,6 +37,7 @@ function loadGame(){
 	// set up input events for keyboardHandler
 	setupInput();
 
+	// this will spawn the main sprite
 	spawnShape();
 
 	// we only want this to happen once
@@ -39,7 +46,6 @@ function loadGame(){
 			loaded = true;
 		}
 
-		//updateAll();
 
 }
 

@@ -159,7 +159,7 @@ function calculateScore(row) {
   var scoreArray = tetrisGrid.slice( arrayIndex, arrayIndex + TILE_COLS);
   var calculatedScore = 0;
   // calculate the score for every colour
-  for(var i =0; i <= scoreArray.length; i++){#
+  for(var i =0; i <= scoreArray.length; i++){
 
     // the scoreArray contains a square with a colour in it, we add the
     // value of that colour to the score.
@@ -199,12 +199,21 @@ function removeRow(row){
 
 }
 
+//function that actions delete row, then adds row to top of grid, and
+// then actuall draws the grid.
+
+function actionDelete(row){
+  removeRow(row);
+  addRowToTopOfGrid();
+  drawGrid();
+}
+
 // checks the entire grid for rows that can be removed.
 
 // ToDo: could be made more efficient by checking only rows withihin shapeHeight
 function checkGrid(){
   var delRow;
-  
+
   for(var eachRow=0;eachRow<TILE_ROWS;eachRow++) {
     delRow = true;
 
@@ -221,12 +230,11 @@ function checkGrid(){
 
     }
 
+    // this will delete the specific row that we want to delete
+    // and add a row to the top of the grid.
     if (delRow) {
-        removeRow(eachRow);
-        addRowToTopOfGrid();
-        drawGrid();
+        actionDelete(eachRow);
         delRow = false;
-
     }
 
 
