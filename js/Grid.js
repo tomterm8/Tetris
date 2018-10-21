@@ -55,7 +55,6 @@ const TILE_NORECURSION = 2;
 
         tetrisGrid = tetrisGridBackup.slice();
 
-			 	//tetrisGrid = new Array(TILE_COLS * TILE_ROWS);
 		 }
 
 
@@ -72,12 +71,13 @@ const TILE_NORECURSION = 2;
 
 
 
-
+    //  this is a function that simply checks if the cell is within
+    // the array bounds
     function isTileAtColRow(col, row) {
+
   		if(col >= 0 && col < TILE_COLS &&
   			row >= 0 && row < TILE_ROWS) {
-  		/*	 var tileIndexUnderCoord = rowColToArrayIndex(col, row);
-  			 return tileGrid[tileIndexUnderCoord]; */
+
   			 return true;
   		} else {
   			return false;
@@ -86,26 +86,34 @@ const TILE_NORECURSION = 2;
 
 
 
-
+    // calculates the index of a specific col and row position
     	function rowColToArrayIndex(col, row) {
     		return col + TILE_COLS * row;
     	}
 
+
+      // function we use to draw the grid
 			function drawGrid() {
 
 				var gridColor = '';
 
+        // iterate through the entire grid array
 				for(var eachRow=0;eachRow<TILE_ROWS;eachRow++) {
 					for(var eachCol=0;eachCol<TILE_COLS;eachCol++) {
 
+            // calculate the index of each square
 						var arrayIndex = rowColToArrayIndex(eachCol, eachRow);
 
+            // CELL_HIDDEN means that it is not occupied by a colour square yet
 						if (tetrisGrid[arrayIndex] == CELL_HIDDEN) {
 							 gridColor = 'green';
 						}
 						else {
+               // we use the colour of any occupied square in the tetris grid
 							 gridColor = tetrisGrid[arrayIndex];
 						}
+
+            // simply prints out the grid square
 						colorRect(TILE_W*eachCol,TILE_H*eachRow + TOP_GAP,
 							TILE_W-TILE_GAP,TILE_H-TILE_GAP, gridColor);
 
@@ -113,6 +121,10 @@ const TILE_NORECURSION = 2;
 				} // end of for each row
 				drawShape(TOP_GAP);
 			} // end of drawTiles func
+
+
+
+
 
       function drawHeader(){
         colorText('Next Shape:', 20,20, 'white');

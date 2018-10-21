@@ -1,6 +1,5 @@
 // first tetris shape
 
-// to do: rotation movement checker
 // to do: add score
 
 // To Do: refactor me.
@@ -117,10 +116,9 @@ function collisionFloor(moveRow, collidingArray) {
 
 function collideWithWall(moveCol, collidingArray){
 
-  // TO DO: This could break if array has rows with different widths.
-  // a nice to have since we are predefining shapes at moment which all have
-  // same width.
-  var totalWidth= moveCol + collidingArray[0].length;
+  // This is defensive programming. SpriteWidth generates the maximum width of
+  // the sprite.
+  var totalWidth= moveCol + spriteWidth(collidingArray);
 
   if (totalWidth > TILE_COLS){
     return(true);

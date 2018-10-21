@@ -105,6 +105,22 @@ const NUMBER_IN_SPRITE_LIST = 3;
     }
 
 
+//function produces width of sprite
+
+  function spriteWidth(spriteArray){
+
+    tmpMaxLength = 0;
+
+    for (var tmpRow=0;tmpRow<spriteArray.length;tmpRow++){
+        if (spriteArray[tmpRow].length > tmpMaxLength) {
+          tmpMaxLength = spriteArray[tmpRow].length;
+        }
+      }
+    return tmpMaxLength;
+
+}
+
+
 // function that gets a sprite from the Sprite Gnerator Array
     function generateSprite(){
     var noOfSprites = spriteGeneratorArray.length;
